@@ -76,8 +76,8 @@ def patch_gen(bbox, img_ori, patch_path):
 
 start_time_total = time.time()
 
-dir_name_ori = '/scratch2/zheng/kidney_fibrosis_patch_based/osu_data/Originals/'
-dir_name_annot = '/scratch2/zheng/kidney_fibrosis_patch_based/osu_data/Annotations Only/'
+dir_name_ori = '.../osu_data/Originals/'
+dir_name_annot = '.../osu_data/Annotations Only/'
 filenames = os.listdir(dir_name_ori)
 
 for filename in filenames:
