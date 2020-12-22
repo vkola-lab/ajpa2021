@@ -13,7 +13,7 @@ import time
 path_ori = '.../Originals_and_No_annt/'
 path_ant = '.../Annotations Only/'
 PATCH_SIZE = 224
-stride = 224
+STRIDE = 224
 DOWN_SIZE = 508
 
 def preprocess_mask(path_ori, width_resize=2560, height_resize=1920):
@@ -162,15 +162,15 @@ def preprocess_patch(path_ori, width_resize=2560, height_resize=1920):
         roi_h = x_max - x_min
         roi_w = y_max - y_min
         
-        wp = int((roi_w - PATCH_SIZE) / stride + 1)
-        hp = int((roi_h - PATCH_SIZE) / stride + 1)
+        wp = int((roi_w - PATCH_SIZE) / STRIDE + 1)
+        hp = int((roi_h - PATCH_SIZE) / STRIDE + 1)
         total = wp * hp
         cnt = 0
 
         for w in range(wp):
             for h in range(hp):
-                y = y_min + w * stride
-                x = x_min + h * stride
+                y = y_min + w * STRIDE
+                x = x_min + h * STRIDE
                 cnt += 1
                 if y > width or x > height:
                     continue
