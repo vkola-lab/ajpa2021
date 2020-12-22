@@ -10,8 +10,8 @@ import cv2
 import openslide
 import time
 
-path_ori = '/scratch2/zheng/kidney_fibrosis_patch_based/osu_data/Originals_and_No_annt/'
-path_ant = '/scratch2/zheng/kidney_fibrosis_patch_based/osu_data/Annotations Only/'
+path_ori = '.../Originals_and_No_annt/'
+path_ant = '.../Annotations Only/'
 PATCH_SIZE = 224
 stride = 224
 DOWN_SIZE = 508
