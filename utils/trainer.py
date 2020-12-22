@@ -10,7 +10,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
 from torchvision import transforms
-from models.fpn_global_local_fmreg_ensemble import fpn
+from models.resnet_fpn import fpn
 from utils.metrics import ConfusionMatrix
 from PIL import Image
 import os
