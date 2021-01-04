@@ -1,1 +1,1 @@
-# renal_fibrosis
+# Deep learning driven quantification of interstitial fibrosis in kidney biopsies 
