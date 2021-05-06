@@ -38,9 +38,7 @@ class Options():
         elif args.mode == 2:
             args.num_epochs = 50
             args.lr = 2e-5
-        else:
-            args.num_epochs = 120
-            args.lr = 5e-5
+            
         if args.evaluation:
             args.num_epochs = 1
         return args
