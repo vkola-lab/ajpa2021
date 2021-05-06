@@ -52,7 +52,11 @@ Step3. Preprocess images at global level. It downsampes the WSIs to a fixed dime
 ```
 python src/preprocess.py --g
 ```
-Step4. Preprocess images at local level. It tiles the WSIs to patches at high resolution.
+Step4. Preprocess images at local level. It tiles the WSIs to patches at high resolution and discards background patches. 
+<p align="center">
+<img src="https://github.com/vkola-lab/ajpa2021/blob/master/figures/local1.png" width="10%" height="10%"> <img src="https://github.com/vkola-lab/ajpa2021/blob/master/figures/local2.png" width="10%" height="10%"> <img src="https://github.com/vkola-lab/ajpa2021/blob/master/figures/local3.png" width="10%" height="10%"> <img src="https://github.com/vkola-lab/ajpa2021/blob/master/figures/local4.png" width="10%" height="10%">
+</p>
+
 ```
 python src/preprocess.py --p
 ```
