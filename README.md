@@ -33,25 +33,47 @@ data/
     OSUWMC/
       1.svs
       2.svs
-      3.svs
     OSUMASK_MASK/
       1.png
       2.png
-      3.png
 ```
 ## Preprocessing
-Step1. Preprocess mask/annotations provided by pathologists if possible. The mask indicates interested regions on WSIs created by the pathologists. If masks are provided, we will only consider those regions instead of the whole slide image. 
+Step1. Split training, validation, and testing dataset and store them in text files.
+```
+filename1,label1
+filename2,label2
+...
+```
+Step2. Preprocess mask/annotations provided by pathologists if possible. The mask indicates interested regions on WSIs created by the pathologists. If masks are provided, we will only consider those regions instead of the whole slide image. 
 ```
 python src/preprocess.py --m
 ```
-Step2. Preprocess images at global level. It downsampes the WSIs to a fixed dimension.
+Step3. Preprocess images at global level. It downsampes the WSIs to a fixed dimension.
 ```
 python src/preprocess.py --g
 ```
-Step3. Preprocess images at local level. It tiles the WSIs to patches at high resolution.
+Step4. Preprocess images at local level. It tiles the WSIs to patches at high resolution.
 ```
 python src/preprocess.py --p
 ```
+Masks, global and local data will be saved in:
+```
+data/
+    OSUWMC_all.txt
+    OSUWMC_val.txt
+    OSUWMC_train.txt
+    OSUWMC/
+      1.svs
+    OSUMASK_MASK/
+      1.png
+    masks/
+    globals/
+    locals/    
+```
+## Training
+
 
 # Requirements
 <li> WSI software: PixelView (deepPath, Inc.) </li>
+<li> Python 3.6 </li>
+<li> Pytorch 1.6 </li>
