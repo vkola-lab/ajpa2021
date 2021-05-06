@@ -60,8 +60,9 @@ Masks, global and local data will be saved in:
 ```
 data/
     OSUWMC_all.txt
-    OSUWMC_val.txt
     OSUWMC_train.txt
+    OSUWMC_val.txt
+    OSUWMC_test.txt
     OSUWMC/
       1.svs
     OSUMASK_MASK/
