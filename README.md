@@ -15,3 +15,8 @@ The Class Activation Map (CAM) is used to visualize which regions located by the
 <p align="center">
 <img src="https://github.com/vkola-lab/ajpa2021/blob/master/figures/cam.png" width="70%" height="70%">
 </p>
+
+
+
+Please refer to our paper for more details.
+# How to use
