@@ -79,7 +79,7 @@ def get_ids(path, valid_ids):
             ids_.append(name)
     return ids, ids_
 
-def get_gt(path, path_down='data/downsample'):
+def get_gt(path, path_down='data/globals'):
     valid_ids = []
     for file_ in os.listdir(path_down):
         valid_ids.append(file_.split('.')[0])
