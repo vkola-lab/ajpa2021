@@ -178,7 +178,7 @@ def preprocess_patch(path_ori, width_resize=2560, height_resize=1920):
                 if cnt % 1000 == 0:
                     print('{}/{}'.format(str(cnt), str(total)))
         print('{} finished'.format(name))
-        time.s
+
     print("--- %s seconds ---" % (time.time() - start_time_total))
 
 if __name__ == "__main__":
