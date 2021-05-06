@@ -14,7 +14,7 @@ class Options():
         parser.add_argument('--model_path', type=str, help='path to trained model')
         parser.add_argument('--log_path', type=str, help='path to log files')
         parser.add_argument('--task_name', type=str, help='task name for naming saved model files and log files')
-        parser.add_argument('--mode', type=int, default=1, choices=[1, 2, 3], help='mode for training procedure. 1: train global branch only. 2: train local branch with fixed global branch. 3: train global branch with fixed local branch')
+        parser.add_argument('--mode', type=int, default=1, choices=[1, 2], help='mode for training procedure. 1: train global branch only. 2: train local branch with fixed global branch.')
         parser.add_argument('--evaluation', action='store_true', default=False, help='evaluation only')
         parser.add_argument('--batch_size', type=int, default=6, help='batch size for origin global image (without downsampling)')
         parser.add_argument('--sub_batch_size', type=int, default=6, help='batch size for using local image patches')
