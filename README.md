@@ -75,12 +75,14 @@ data/
     globals/
     locals/    
 ```
-## Training
+## Training & Evaluation
 Sequentially run the following scripts and store the model checkpoints and logging files under "outputs/saved_models" and "outputs/runs".
 ```
 1. bash train_g.sh
 2. bash train_g2l.sh
 ```
+To evaluate the model. run
+```bash test.sh```
 
 # Requirements
 <li> WSI software: PixelView (deepPath, Inc.) </li>
