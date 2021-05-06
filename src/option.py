@@ -1,7 +1,3 @@
-###########################################################################
-# Copyright (c) 2020
-###########################################################################
-
 import os
 import argparse
 import torch
@@ -12,6 +8,9 @@ class Options():
         # model and dataset 
         parser.add_argument('--n_class', type=int, default=4, help='classification classes')
         parser.add_argument('--data_path', type=str, help='path to dataset where images store')
+        parser.add_argument('--all_file', type=str, default='data/OSUWMC_all.txt', help='path to all data')
+        parser.add_argument('--train_file', type=str, default='data/OSUWMC_train.txt', help='path to train data')
+        parser.add_argument('--eval_file', type=str, default='data/OSUWMC_val.txt', help='path to evaluation data')
         parser.add_argument('--model_path', type=str, help='path to trained model')
         parser.add_argument('--log_path', type=str, help='path to log files')
         parser.add_argument('--task_name', type=str, help='task name for naming saved model files and log files')
@@ -38,7 +37,9 @@ class Options():
         elif args.mode == 2:
             args.num_epochs = 50
             args.lr = 2e-5
-            
+        else:
+            args.num_epochs = 120
+            args.lr = 5e-5
         if args.evaluation:
             args.num_epochs = 1
         return args
