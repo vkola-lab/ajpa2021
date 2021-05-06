@@ -21,6 +21,7 @@ torch.backends.cudnn.deterministic = True
 
 transformer = transforms.Compose([
     transforms.ToTensor(),
+    #transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
 
 def resize(images, shape, label=False):
@@ -67,8 +68,8 @@ def global2patch(images, labels_glb, p_size, ids):
     '''
     patches = []; coordinates = []; templates = []; sizes = []; ratios = [(0, 0)] * len(ids); patch_ones = np.ones(p_size); label_patches = []
     for i in range(len(ids)):
-        image_info = os.listdir(os.path.join('data/patches', ids[i]))[0].split('_')
-        patches_list = os.listdir(os.path.join('data/patches', ids[i]))
+        image_info = os.listdir(os.path.join('data/locals', ids[i]))[0].split('_')
+        patches_list = os.listdir(os.path.join('data/locals', ids[i]))
         patches_list.sort()
         h, w = int(image_info[-2]), int(image_info[-1].split('.')[0])
 
@@ -82,7 +83,7 @@ def global2patch(images, labels_glb, p_size, ids):
 
         for j, patch_name in enumerate(patches_list):
             x, y = int(patch_name.split('_')[-4]), int(patch_name.split('_')[-3])
-            patch = Image.open(os.path.join('data/patches', ids[i], patch_name))
+            patch = Image.open(os.path.join('data/locals', ids[i], patch_name))
             coordinates[i][j] = (x, y)
             patches[i][j] = transforms.functional.crop(patch, 0, 0, p_size[0], p_size[1])
             label_patches[i][j] = labels_glb[i]
@@ -128,7 +129,7 @@ class Trainer(object):
         ids = sample['id']
         width, height = images[0].size
 
-        if width > self.size_g[0] or height > self.size_g[1]:
+        if width != self.size_g[0] or height != self.size_g[1]:
             images_glb = resize(images, self.size_g) # list of resized PIL images
         else:
             images_glb = list(images)
