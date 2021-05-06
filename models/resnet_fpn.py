@@ -353,7 +353,7 @@ class fpn(nn.Module):
         h, w = int(np.round(H * ratio[0])) if int(np.round(H * ratio[0])) > 0 else 1, int(np.round(W * ratio[1])) if int(np.round(W * ratio[1])) > 0 else 1
         for i in range(b):
             index = oped[0] + i
-            top, left = int(np.round(top_lefts[i][0] * ratio[0] * H)), int(np.round(top_lefts[i][1] * ratio[1] * W))
+            top, left = int(np.round(top_lefts[index][0] * ratio[0] * H)), int(np.round(top_lefts[index][1] * ratio[1] * W))
             merge[:, :, top:top+h, left:left+w] += F.interpolate(f_local[i:i+1], size=(h, w), **self._up_kwargs)
 
         return merge
