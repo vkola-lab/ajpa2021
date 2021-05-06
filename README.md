@@ -22,9 +22,10 @@ The performance of the model on OSUWMC are reported in the form of roc curve:
 </p>
 
 Please refer to our paper for more details.
+
 # Usage
 ## Data
-We trained, validated and tested the framework using the OSUWMC dataset and KPMP dataset. For OSUWMC dataset, please contact us for more information. KPMP is a public dataset and you could obtain WSIs from the official website (https://www.kpmp.org).
+We trained, validated and tested the framework using the OSUWMC dataset and KPMP dataset. The OSUWMC dataset is not available for public use. KPMP is a public dataset and the WSIs can be downloaded from their website (https://www.kpmp.org).
 
 # Requirements
-<li> OpenSlide </li>
+<li> WSI software: PixelView (deepPath, Inc.) </li>
