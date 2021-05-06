@@ -30,10 +30,7 @@ def split_train_test(raw_folder, gt_train, gt_test, GT_names):
     random.shuffle(all_list)
     test_list = all_list[0:test_num]
     train_list = all_list[test_num:]
-    # if not os.path.exists(output_path + 'test/' + class_name):
-    #     os.makedirs(output_path + 'test/' + class_name)
-    # if not os.path.exists(output_path + 'train/' + class_name):
-    #     os.makedirs(output_path + 'train/' + class_name)
+
     for ind in all_list:
         name = raw_folder[ind]
         label = GT_names[name]
@@ -71,8 +68,7 @@ def get_ids(path, valid_ids):
     ids = []
     ids_ = []
     for line in lines:
-        name = line.replace("\n", "").split(" ")[0]
-        #name = line.replace("\n", "").split("\t")[0]
+        name, label = line.replace("\n", "").split(",")
         if name in valid_ids:
             ids.append(name)
         else:
@@ -87,9 +83,8 @@ def get_gt(path, path_down='data/globals'):
     lines = gt.readlines()
     GT = {}
     for line in lines:
-        name, label = line.replace("\n", "").split("\t")[0], line.replace("\n", "").split("\t")[1].lower()
-        #name, label = line.replace("\n", "").split(" ")[0], line.replace("\n", "").split(" ")[1].lower()
-        GT[name] = txt2num.index(label)
+        name, label = line.strip("\n").split(",")
+        GT[name] = txt2num.index(label.lower())
     return GT, valid_ids
 
 if __name__ == "__main__":
