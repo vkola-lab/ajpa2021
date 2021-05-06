@@ -84,5 +84,7 @@ Sequentially run the following scripts and store the model checkpoints and loggi
 
 # Requirements
 <li> WSI software: PixelView (deepPath, Inc.) </li>
-<li> Python 3.6 </li>
-<li> Pytorch 1.6 </li>
+Major dependencies are:
+<li> python </li>
+<li> pytorch </li>
+<li> openslide-python </li>
