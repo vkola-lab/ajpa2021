@@ -1,6 +1,4 @@
 ###########################################################################
-# Created by: YI ZHENG
-# Email: yizheng@bu.edu
 # Copyright (c) 2020
 ###########################################################################
 
@@ -34,12 +32,15 @@ class Options():
     def parse(self):
         args = self.parser.parse_args()
         # default settings for epochs and lr
-        if args.mode == 1 or args.mode == 3:
-            args.num_epochs = 120
+        if args.mode == 1:
+            args.num_epochs = 30
             args.lr = 5e-5
-        else:
+        elif args.mode == 2:
             args.num_epochs = 50
             args.lr = 2e-5
+        else:
+            args.num_epochs = 120
+            args.lr = 5e-5
         if args.evaluation:
             args.num_epochs = 1
         return args
