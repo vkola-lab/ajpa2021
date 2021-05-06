@@ -47,18 +47,15 @@ print("preparing datasets and dataloaders......")
 batch_size = args.batch_size
 
 # get train, val, test
-GT, VIDS = get_gt("data/OSUWMC_all.txt")
-ids_train, _ = get_ids("data/OSUWMC_train.txt", VIDS)
-ids_val, _ = get_ids("data/OSUWMC_val.txt", VIDS)
-ids_test, _ = get_ids("data/OSUWMC_test.txt", VIDS)
+GT, VIDS = get_gt(args.all_file)
+ids_train, _ = get_ids(args.train_file, VIDS)
+ids_val, _ = get_ids(args.eval_file, VIDS)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 dataset_train = KidneyFibrosis(os.path.join(data_path, "globals"), ids_train, label=True, classdict=GT, transform=False)     # default: True
 dataloader_train = torch.utils.data.DataLoader(dataset=dataset_train, batch_size=batch_size, num_workers=10, collate_fn=collate, shuffle=True, pin_memory=True)
 dataset_val = KidneyFibrosis(os.path.join(data_path, "globals"), ids_val, label=True, classdict=GT)
 dataloader_val = torch.utils.data.DataLoader(dataset=dataset_val, batch_size=batch_size, num_workers=10, collate_fn=collate, shuffle=False, pin_memory=True)
-# dataset_test = KidneyFibrosis(os.path.join(data_path, "globals"), ids_test, label=False, classdict=GT)
-# dataloader_test = torch.utils.data.DataLoader(dataset=dataset_test, batch_size=batch_size, num_workers=10, collate_fn=collate_test, shuffle=False, pin_memory=True)
 
 ##### sizes are (w, h) ##############################
 # make sure margin / 32 is over 1.5 AND size_g is divisible by 4
