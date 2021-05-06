@@ -127,21 +127,21 @@ for epoch in range(num_epochs):
             if mode == 1:
                 if score_val_global["accuracy"] > best_pred:
                     best_pred = score_val_global["accuracy"]
-                    if not (test or evaluation):
+                    if not evaluation:
                         print("saving model...")
                         torch.save(model.state_dict(), model_path + task_name + ".pth")
 
             if mode == 2:
                 if score_val["accuracy"] > best_pred:
                     best_pred = score_val["accuracy"]
-                    if not (test or evaluation):
+                    if not evaluation:
                         print("saving model...")
                         torch.save(model.state_dict(), model_path + task_name + ".pth")
 
             else:
                 if score_val["accuracy"] > best_pred: 
                     best_pred = score_val["accuracy"]
-                    if not (test or evaluation):
+                    if not evaluation:
                         print("saving model...")
                         torch.save(model.state_dict(), model_path + task_name + ".pth")
 
