@@ -33,7 +33,7 @@ class Options():
         args = self.parser.parse_args()
         # default settings for epochs and lr
         if args.mode == 1:
-            args.num_epochs = 30
+            args.num_epochs = 20
             args.lr = 5e-5
         elif args.mode == 2:
             args.num_epochs = 50
