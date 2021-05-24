@@ -1,4 +1,7 @@
 # Deep learning driven quantification of interstitial fibrosis in kidney biopsies 
+
+This work is published in the _American Journal of Pathology_ (https://doi.org/10.1016/j.ajpath.2021.05.005).
+
 # Introduction
 This repository contains a PyTorch implementation of a deep learning framework for classification of trichrome-stained whole-slide images (WSIs). It is the code for the paper <a href="url">Deep learning driven quantification of interstitial fibrosis in kidney biopsies</a>. Our framework is based on combining the features learned at the global level of the WSI along with the ones learned from local high-resolution image patches from the WSI:
 
